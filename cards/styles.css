@@ -1,0 +1,56 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.table {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, forestgreen, darkgreen);
+}
+
+.card-red { color: red; }
+.card-black { color: black; }
+
+.card {
+  position: absolute;
+  width: 100px;
+  height: 160px;
+  background: whitesmoke;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 3px 3px 0 black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  line-height: 1;
+}
+
+.card-top {
+  left: calc(50% - 120px);
+  top:  calc(50% - 100px);
+  z-index: 2;
+}
+
+.card-bottom {
+  left: calc(50% - 30px);
+  top:  calc(50% - 80px);
+  z-index: 1;
+}
+
+.heart { color: red; font-size: 44px; line-height: 1; }
+.spade { color: black; font-size: 44px; line-height: 1; }
+
+.top-left {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+}
+
+.bottom-right {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+}

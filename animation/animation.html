@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Animating the Answer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    /* layout (not graded, just neat) */
+    html, body { height: 100%; margin: 0; }
+    body {
+      display: grid;
+      place-items: center;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #f7f7f7;
+    }
+    .wrap {
+      width: min(92vw, 960px);
+      background: #fff;
+      border: 1px solid #e6e6e6;
+      border-radius: 14px;
+      padding: 40px 28px 48px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.08);
+    }
+
+    /* ===== Professor’s requirements ===== */
+
+    /* Question with a transition on transform (0.6s ease-in-out) */
+    #question {
+      display: block;                           /* own line */
+      font-size: clamp(22px, 4.2vw, 38px);
+      font-weight: 800;
+      margin: 0 0 12px 0;
+      transition: transform 0.6s ease-in-out;   /* required */
+    }
+    /* Hover shrinks the text (scale 0.9) */
+    #question:hover { transform: scale(0.9); }  /* required */
+
+    /* Put the '=' and the answer on the next line */
+    .equation {
+      display: block;                            /* ensure it's below the question */
+      font-size: clamp(18px, 3.6vw, 28px);
+      font-weight: 700;
+    }
+    #equals { font-weight: 800; }
+
+    /* Animated fraction */
+    #answer {
+      display: inline-block;
+      font-weight: 800;
+      letter-spacing: .5px;
+      /* start 1s after load; run 2s; keep final state */
+      animation: moveFraction 2s ease 1s forwards;     /* required */
+      animation-fill-mode: forwards;                   /* required */
+    }
+
+    /* Keyframes per rubric */
+    @keyframes moveFraction {
+      /* off the left side and below: (-355px, 60px) & yellow */
+      0%   { color: yellow; transform: translate(-355px, 60px); }   /* required */
+      /* just below & right of the question: (0px, 60px) */
+      50%  { transform: translate(0px, 60px); }                     /* required */
+      /* final next to '=': (0px, 0px) & red */
+      100% { color: red; transform: translate(0px, 0px); }          /* required */
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div id="question">Question: ¼ + ½</div>
+    <div class="equation">
+      <span id="equals">=</span>
+      <span id="answer">3/4</span>
+    </div>
+  </div>
+</body>
+</html>
